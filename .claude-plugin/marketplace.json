@@ -1,0 +1,13 @@
+{
+  "name": "materkey-cc-plugins",
+  "owner": {
+    "name": "materkey"
+  },
+  "plugins": [
+    {
+      "name": "reflect",
+      "source": "./plugins/reflect",
+      "description": "Session reflection tools - patch existing skills and design durable architectural changes"
+    }
+  ]
+}
