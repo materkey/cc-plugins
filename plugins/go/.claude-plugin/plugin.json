@@ -1,0 +1,11 @@
+{
+  "name": "go",
+  "description": "End-of-task finisher - verify with e2e tests, simplify, and open a PR",
+  "version": "1.0.0",
+  "author": {
+    "name": "materkey"
+  },
+  "homepage": "https://github.com/materkey/cc-plugins",
+  "repository": "https://github.com/materkey/cc-plugins",
+  "license": "MIT"
+}

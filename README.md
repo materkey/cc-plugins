@@ -9,10 +9,12 @@ Add the marketplace, then install the plugins you want:
     /plugin marketplace add materkey/cc-plugins
 
     /plugin install reflect@materkey-cc-plugins
+    /plugin install go@materkey-cc-plugins
 
 Test a plugin locally:
 
     claude --plugin-dir plugins/reflect
+    claude --plugin-dir plugins/go
 
 <details>
 <summary>Manual install (alternative)</summary>
@@ -25,6 +27,11 @@ cp -r plugins/reflect/skills/reflect ~/.claude/skills/
 cp -r plugins/reflect/skills/reflect-architecture ~/.claude/skills/
 ```
 
+**go** — skill (go):
+```bash
+cp -r plugins/go/skills/go ~/.claude/skills/
+```
+
 Restart Claude Code for changes to take effect.
 
 </details>
@@ -34,6 +41,7 @@ Restart Claude Code for changes to take effect.
 | Plugin | Description |
 |--------|-------------|
 | [reflect](#reflect) | Session reflection tools — patch existing skills and design durable architectural changes |
+| [go](#go) | End-of-task finisher — verify with e2e tests, simplify, and open a PR |
 
 ### reflect
 
@@ -69,6 +77,16 @@ Two complementary skills for learning from session experience. `reflect` handles
 After classification, presents findings with confidence, proposed changes, and rationale for the chosen target over alternatives. Supports apply-all, scaffold-only, review-individually, and skip modes.
 
 Both skills run inline (no `context: fork`) to preserve access to current conversation history.
+
+### go
+
+One skill for wrapping up a task: runs end-to-end verification, invokes `/simplify` to clean up the code, then stages, commits, pushes, and opens a Pull Request.
+
+| Component | Trigger | Description |
+|-----------|---------|-------------|
+| skill | `/go:go` | Run end-to-end tests, execute `/simplify`, then create a PR |
+
+**go** — intended as the final command after almost every significant task. Verifies backend APIs via terminal, frontend via browser tools, and CLI tools directly; fixes any issues found; then runs `/simplify` and opens a PR using `gh` or Claude Code's built-in git tools.
 
 ## License
 

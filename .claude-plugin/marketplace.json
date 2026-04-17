@@ -8,6 +8,11 @@
       "name": "reflect",
       "source": "./plugins/reflect",
       "description": "Session reflection tools - patch existing skills and design durable architectural changes"
+    },
+    {
+      "name": "go",
+      "source": "./plugins/go",
+      "description": "End-of-task finisher - verify with e2e tests, simplify, and open a PR"
     }
   ]
 }
