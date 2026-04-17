@@ -13,6 +13,11 @@
       "name": "go",
       "source": "./plugins/go",
       "description": "End-of-task finisher - verify with e2e tests, simplify, and open a PR"
+    },
+    {
+      "name": "skill-workshop",
+      "source": "./plugins/skill-workshop",
+      "description": "Mine Claude Code session history for repeating patterns and propose new skills"
     }
   ]
 }

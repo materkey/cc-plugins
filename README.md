@@ -10,11 +10,13 @@ Add the marketplace, then install the plugins you want:
 
     /plugin install reflect@materkey-cc-plugins
     /plugin install go@materkey-cc-plugins
+    /plugin install skill-workshop@materkey-cc-plugins
 
 Test a plugin locally:
 
     claude --plugin-dir plugins/reflect
     claude --plugin-dir plugins/go
+    claude --plugin-dir plugins/skill-workshop
 
 <details>
 <summary>Manual install (alternative)</summary>
@@ -32,6 +34,12 @@ cp -r plugins/reflect/skills/reflect-architecture ~/.claude/skills/
 cp -r plugins/go/skills/go ~/.claude/skills/
 ```
 
+**skill-workshop** — skill + agent:
+```bash
+cp -r plugins/skill-workshop/skills/skill-workshop ~/.claude/skills/
+cp plugins/skill-workshop/agents/session-analyzer.md ~/.claude/agents/
+```
+
 Restart Claude Code for changes to take effect.
 
 </details>
@@ -42,6 +50,7 @@ Restart Claude Code for changes to take effect.
 |--------|-------------|
 | [reflect](#reflect) | Session reflection tools — patch existing skills and design durable architectural changes |
 | [go](#go) | End-of-task finisher — verify with e2e tests, simplify, and open a PR |
+| [skill-workshop](#skill-workshop) | Mine Claude Code session history for repeating patterns and propose new skills |
 
 ### reflect
 
@@ -87,6 +96,17 @@ One skill for wrapping up a task: runs end-to-end verification, invokes `/simpli
 | skill | `/go:go` | Run end-to-end tests, execute `/simplify`, then create a PR |
 
 **go** — intended as the final command after almost every significant task. Verifies backend APIs via terminal, frontend via browser tools, and CLI tools directly; fixes any issues found; then runs `/simplify` and opens a PR using `gh` or Claude Code's built-in git tools.
+
+### skill-workshop
+
+Republish of [grayodesa/skill-workshop](https://github.com/grayodesa/skill-workshop) packaged as a plugin (skill + bundled agent). Original author retains MIT license.
+
+| Component | Trigger | Description |
+|-----------|---------|-------------|
+| skill | `/skill-workshop:skill-workshop` | Orchestrator — delegates extraction, presents ranked candidates, generates SKILL.md drafts |
+| agent | `session-analyzer` | Haiku-based subagent — parses JSONL session files, scores pattern candidates, writes results to `/tmp/skill-workshop-results.json` |
+
+Mines `~/.claude/projects/<encoded-path>/*.jsonl` for three signal types: repeated explanations, tool-chain workflows, and error→workaround patterns. Packaging the agent alongside the skill is important — `npx skills add` installs the skill but not the agent, leaving the orchestrator without its worker. Installing this plugin delivers both.
 
 ## License
 

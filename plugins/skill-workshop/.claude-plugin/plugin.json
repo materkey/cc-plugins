@@ -1,0 +1,11 @@
+{
+  "name": "skill-workshop",
+  "description": "Mine Claude Code session history for repeating patterns and propose new skills (skill + session-analyzer agent). Upstream: grayodesa/skill-workshop",
+  "version": "1.0.0",
+  "author": {
+    "name": "materkey"
+  },
+  "homepage": "https://github.com/materkey/cc-plugins",
+  "repository": "https://github.com/materkey/cc-plugins",
+  "license": "MIT"
+}
