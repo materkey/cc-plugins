@@ -1,11 +1,11 @@
 {
   "name": "review-feature-architecture",
-  "description": "Review architecture of the current feature only (plan file or branch diff) using the Balanced Coupling model and a GAN-inspired Reviewer/Validator/Improver agent loop. Bundles the balanced-coupling reference skill.",
-  "version": "1.0.0",
+  "description": "Review architecture of the current feature only (plan file or branch diff) using the Balanced Coupling model and a GAN-inspired Reviewer/Validator/Improver agent loop. Bundles the balanced-coupling reference skill from vladikk/modularity (CC BY-NC-SA 4.0).",
+  "version": "1.0.1",
   "author": {
     "name": "materkey"
   },
   "homepage": "https://github.com/materkey/cc-plugins",
   "repository": "https://github.com/materkey/cc-plugins",
-  "license": "MIT"
+  "license": "MIT AND CC-BY-NC-SA-4.0"
 }

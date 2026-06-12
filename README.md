@@ -132,6 +132,8 @@ The review uses a GAN-inspired three-agent loop — self-critique is unreliable,
 
 Cross-boundary integrations are analyzed with the bundled **balanced-coupling** reference skill: modularity = strength XOR distance, with volatility as the pragmatism dimension. A scope-challenge step before the pipeline catches over-engineering early (built-in alternatives, minimal change set, complexity smells).
 
+The bundled `balanced-coupling` skill is taken unchanged from [vladikk/modularity](https://github.com/vladikk/modularity) by Vlad Khononov and is licensed [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) (see `plugins/review-feature-architecture/LICENSE-balanced-coupling`) — it is the one exception to this repository's MIT license. For commercial use of that skill, contact the author (see the modularity repo). Vlad's plugin also offers complementary skills not bundled here: a whole-codebase modularity `review` and a greenfield `design` skill — install `vladikk/modularity` alongside if you need those stages.
+
 ### ralphex-auto
 
 Zero-question plan + execute on top of [umputun/ralphex](https://github.com/umputun/ralphex).
@@ -157,4 +159,4 @@ Report-vs-edit mode is inferred from the request wording ("analyze/audit" → re
 
 ## License
 
-MIT
+MIT, with one exception: the `balanced-coupling` skill in `plugins/review-feature-architecture/skills/balanced-coupling/` is from [vladikk/modularity](https://github.com/vladikk/modularity) © Vlad Khononov and is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) (see `plugins/review-feature-architecture/LICENSE-balanced-coupling`).

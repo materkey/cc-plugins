@@ -13,7 +13,7 @@ Plugins for Claude Code — skills, hooks, and commands, organized as a marketpl
 ## Key Rules
 
 - **README.md must be kept up to date** — whenever a new component, script, or configuration is added, update README.md with a description of what it does and how to use it.
-- Content is MIT-licensed.
+- Content is MIT-licensed, except the `balanced-coupling` skill in `plugins/review-feature-architecture/` (CC BY-NC-SA 4.0, from vladikk/modularity — keep `LICENSE-balanced-coupling` and the attribution intact).
 - **No personal configuration** — scripts and configs must be generic and not contain hardcoded personal paths, editor preferences, or machine-specific settings. Use environment variables for user-specific values.
 - **Self-contained documentation** — do not reference external custom skills, actions, or configurations that exist only in a user's personal Claude Code setup. All documentation must refer only to what exists in this repository.
 
