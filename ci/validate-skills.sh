@@ -21,7 +21,7 @@ if command -v skill-validator >/dev/null 2>&1; then
 elif ! [[ -x "$validator" ]] || ! "$validator" --version >/dev/null 2>&1; then
   if command -v go >/dev/null 2>&1; then
     mkdir -p ./ci/bin
-    GOPROXY=direct GOBIN="$PWD/ci/bin" go install github.com/agent-ecosystem/skill-validator/cmd/skill-validator@v1.3.1
+    GOPROXY=direct GOBIN="$PWD/ci/bin" go install github.com/agent-ecosystem/skill-validator/cmd/skill-validator@v1.5.6
   else
     echo "skill-validator is not available: none in PATH, no working ./ci/bin/skill-validator, and no Go to install it." >&2
     exit 1
