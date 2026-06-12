@@ -1,0 +1,17 @@
+{
+  "name": "complexity-optimizer",
+  "description": "Analyze a codebase for algorithmic complexity hotspots and propose or implement safe optimizations without breaking behavior. Upstream: Kappaemme-git/codex-complexity-optimizer",
+  "version": "1.0.0",
+  "author": {
+    "name": "materkey"
+  },
+  "homepage": "https://github.com/materkey/cc-plugins",
+  "repository": "https://github.com/materkey/cc-plugins",
+  "license": "MIT",
+  "keywords": [
+    "complexity",
+    "performance",
+    "optimization",
+    "static-analysis"
+  ]
+}

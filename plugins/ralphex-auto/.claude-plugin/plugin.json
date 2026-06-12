@@ -1,0 +1,11 @@
+{
+  "name": "ralphex-auto",
+  "description": "One-shot ralphex: continue an active plan or create one from conversation context, then launch autonomous execution without questions",
+  "version": "1.0.0",
+  "author": {
+    "name": "materkey"
+  },
+  "homepage": "https://github.com/materkey/cc-plugins",
+  "repository": "https://github.com/materkey/cc-plugins",
+  "license": "MIT"
+}
