@@ -2,3 +2,6 @@
 
 # ralphex progress logs
 .ralphex/progress/
+
+# bootstrapped skill-validator binary (ci/validate-skills.sh)
+ci/bin/

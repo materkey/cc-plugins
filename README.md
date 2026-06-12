@@ -157,6 +157,25 @@ Adapted from [Kappaemme-git/codex-complexity-optimizer](https://github.com/Kappa
 
 Report-vs-edit mode is inferred from the request wording ("analyze/audit" → report only; "fix/optimize" → report + edits). Optimizations are conservative: prove current behavior with tests first, prefer maps/sets, batching, memoization over rewrites, verify with the project's own test/lint/build commands. Includes an optimization playbook and a report template under `references/`.
 
+## Development: pre-commit hooks
+
+The repository ships native git config-based hooks (git >= 2.54, no lefthook or other hook runner needed). Defined in `hooks.gitconfig`:
+
+| Hook | Script | What it checks |
+|------|--------|----------------|
+| validate-skills | `ci/validate-skills.sh` | Runs [skill-validator](https://github.com/agent-ecosystem/skill-validator) (`validate structure`) on every skill touched by staged files; fails the commit on validation errors |
+| check-marketplace | `ci/check-marketplace.sh` | `.claude-plugin/marketplace.json` is in sync with `plugins/`: every plugin dir is listed, every entry points to an existing plugin, no orphan skill dirs without `plugin.json` |
+
+Enable once per clone:
+
+```bash
+git config --local include.path ../hooks.gitconfig
+```
+
+Verify with `git hook list pre-commit` — it should print both hooks. Both scripts can also be run directly (e.g. in CI); `ci/validate-skills.sh` validates skills containing the files passed as arguments, or staged files when called with none.
+
+Dependencies: `jq` and `python3`; `skill-validator` in `PATH` (otherwise bootstrapped via `go install` into the git-ignored `ci/bin/`).
+
 ## License
 
 MIT, with one exception: the `balanced-coupling` skill in `plugins/review-feature-architecture/skills/balanced-coupling/` is from [vladikk/modularity](https://github.com/vladikk/modularity) © Vlad Khononov and is licensed under [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) (see `plugins/review-feature-architecture/LICENSE-balanced-coupling`).

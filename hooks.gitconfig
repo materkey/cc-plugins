@@ -1,0 +1,7 @@
+[hook "validate-skills"]
+	event = pre-commit
+	command = ci/validate-skills.sh
+
+[hook "check-marketplace"]
+	event = pre-commit
+	command = ci/check-marketplace.sh
