@@ -167,6 +167,8 @@ Report-vs-edit mode is inferred from the request wording ("analyze/audit" → re
 
 ### explore
 
+Adapted from the explore workflow of [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec) (MIT, see `plugins/explore/LICENSE`) — the OpenSpec ending (proposal/tasks/design change folder) is replaced with a handoff to `/planning:make`.
+
 A thinking partner for exploring ideas, investigating problems, and clarifying requirements before committing to a plan — a stance, not a workflow: no fixed steps, no required sequence, no mandatory outputs.
 
 | Component | Trigger | Description |
