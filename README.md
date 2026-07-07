@@ -13,6 +13,7 @@ Add the marketplace, then install the plugins you want:
     /plugin install review-feature-architecture@materkey-cc-plugins
     /plugin install ralphex-auto@materkey-cc-plugins
     /plugin install complexity-optimizer@materkey-cc-plugins
+    /plugin install explore@materkey-cc-plugins
 
 Test a plugin locally:
 
@@ -21,6 +22,7 @@ Test a plugin locally:
     claude --plugin-dir plugins/review-feature-architecture
     claude --plugin-dir plugins/ralphex-auto
     claude --plugin-dir plugins/complexity-optimizer
+    claude --plugin-dir plugins/explore
 
 <details>
 <summary>Manual install (alternative)</summary>
@@ -55,6 +57,11 @@ cp -r plugins/ralphex-auto/skills/ralphex-auto ~/.claude/skills/
 cp -r plugins/complexity-optimizer/skills/complexity-optimizer ~/.claude/skills/
 ```
 
+**explore** — skill:
+```bash
+cp -r plugins/explore/skills/explore ~/.claude/skills/
+```
+
 Restart Claude Code for changes to take effect.
 
 </details>
@@ -68,6 +75,7 @@ Restart Claude Code for changes to take effect.
 | [review-feature-architecture](#review-feature-architecture) | Feature-scoped architecture review with a Reviewer/Validator/Improver agent loop and the Balanced Coupling model |
 | [ralphex-auto](#ralphex-auto) | One-shot ralphex: continue or create a plan from conversation context, then launch autonomous execution |
 | [complexity-optimizer](#complexity-optimizer) | Find algorithmic complexity hotspots and apply safe, behavior-preserving optimizations |
+| [explore](#explore) | Explore mode — a thinking partner for ideas, problems, and requirements; hands off to `/planning:make` |
 
 ### reflect
 
@@ -156,6 +164,18 @@ Adapted from [Kappaemme-git/codex-complexity-optimizer](https://github.com/Kappa
 | script | `scripts/analyze_complexity.py` | Multi-language static scanner (Python, JS/TS, Java, Go, C/C++, C#, Ruby, PHP, Swift) used as a lead generator |
 
 Report-vs-edit mode is inferred from the request wording ("analyze/audit" → report only; "fix/optimize" → report + edits). Optimizations are conservative: prove current behavior with tests first, prefer maps/sets, batching, memoization over rewrites, verify with the project's own test/lint/build commands. Includes an optimization playbook and a report template under `references/`.
+
+### explore
+
+A thinking partner for exploring ideas, investigating problems, and clarifying requirements before committing to a plan — a stance, not a workflow: no fixed steps, no required sequence, no mandatory outputs.
+
+| Component | Trigger | Description |
+|-----------|---------|-------------|
+| skill | `/explore:explore` (or any "let's think this through") | Enter explore mode — read and search the codebase, compare options, draw ASCII diagrams, never implement |
+
+Explore mode reads files and investigates the codebase but never writes code or artifacts. When the thinking crystallizes, it offers to hand off to the planning plugin's `/planning:make` command, which captures the exploration as a single structured plan file (by default `docs/plans/yyyymmdd-<task-name>.md`) — it does **not** create OpenSpec-style `proposal.md`/`tasks.md`/`design.md` folders.
+
+Depends on the [planning](https://github.com/umputun/cc-thingz) plugin from the `umputun-cc-thingz` marketplace (declared as a cross-marketplace dependency, installed automatically with the plugin).
 
 ## Development: pre-commit hooks
 

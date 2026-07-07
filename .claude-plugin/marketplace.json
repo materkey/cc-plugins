@@ -3,6 +3,9 @@
   "owner": {
     "name": "materkey"
   },
+  "allowCrossMarketplaceDependenciesOn": [
+    "umputun-cc-thingz"
+  ],
   "plugins": [
     {
       "name": "reflect",
@@ -28,6 +31,11 @@
       "name": "complexity-optimizer",
       "source": "./plugins/complexity-optimizer",
       "description": "Find algorithmic complexity hotspots and apply safe, behavior-preserving optimizations"
+    },
+    {
+      "name": "explore",
+      "source": "./plugins/explore",
+      "description": "Explore mode - a thinking partner for ideas, problems, and requirements; hands off to the planning plugin's /planning:make for a single structured plan"
     }
   ]
 }

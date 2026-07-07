@@ -1,0 +1,14 @@
+{
+  "name": "explore",
+  "description": "Enter explore mode - a thinking partner for exploring ideas, investigating problems, and clarifying requirements before writing a plan or code. Use when the user wants to think through something. Hands off to the planning plugin's /planning:make command to produce a single structured plan (does NOT create OpenSpec-style proposal/tasks/design files).",
+  "version": "1.0.0",
+  "author": {
+    "name": "materkey"
+  },
+  "homepage": "https://github.com/materkey/cc-plugins",
+  "repository": "https://github.com/materkey/cc-plugins",
+  "license": "MIT",
+  "dependencies": [
+    "planning@umputun-cc-thingz"
+  ]
+}
